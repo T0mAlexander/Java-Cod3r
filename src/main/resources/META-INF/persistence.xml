@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence
+             https://jakarta.ee/xml/ns/persistence/persistence_3_2.xsd"
+             version="3.2">
+	<!-- Configuração da unidade de persistência -->
+	<persistence-unit name="Postgres" transaction-type="RESOURCE_LOCAL">
+		<!-- Descrição da unidade de persistência -->
+		<description>Estudos de Java</description>
+
+		<!-- Classes de entidades explicitamente inclusas -->
+		<class>JPA.Models.Usuario</class>
+
+		<!-- Fonte de dados JTA configurada no servidor -->
+		<!--<jta-data-source>java:comp/env/jdbc/MyDataSource</jta-data-source>-->
+
+		<!-- Excluir classes não listadas -->
+		<!--<exclude-unlisted-classes>false</exclude-unlisted-classes>-->
+
+		<!-- Configuração de cache -->
+		<!--<shared-cache-mode>ENABLE_SELECTIVE</shared-cache-mode>-->
+
+		<!-- Validação -->
+		<!--<validation-mode>AUTO</validation-mode>-->
+
+		<!-- Propriedades específicas do provedor da JPA -->
+		<properties>
+			<!-- URL do banco de dados -->
+			<property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/java"/>
+
+			<!-- Usuário do banco -->
+			<property name="jakarta.persistence.jdbc.user" value="java"/>
+
+			<!-- Senha do banco -->
+			<property name="jakarta.persistence.jdbc.password" value="123"/>
+
+			<!-- Driver do banco -->
+			<property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+
+			<!-- Dialeto exemplar do Hibernate com Postgres -->
+			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
+
+			<!-- Exibe as consultas SQL nos logs -->
+			<property name="hibernate.show_sql" value="false" />
+
+			<!-- Formatação do SQL nos logs -->
+			<property name="hibernate.format_sql" value="false" />
+
+			<!-- Auto update do esquema do banco de dados -->
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+		</properties>
+	</persistence-unit>
+</persistence>
